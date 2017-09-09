@@ -1,0 +1,13 @@
+.~lock.*
+.metadata/
+*.pyc
+*.pdf
+dist/
+build/
+_build/
+dist/
+performance/
+vecvis.egg-info/
+_static
+_template
+notes
