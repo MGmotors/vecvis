@@ -11,3 +11,6 @@ vecvis.egg-info/
 _static
 _template
 notes
+.project
+.pydevproject
+.settings/
