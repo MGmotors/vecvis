@@ -1,8 +1,10 @@
+# encoding: utf-8
 '''
 Created on 24.07.2017
 
 @author: Mo
 '''
+import tkinter
 from vecvis.utils.vector2 import Vector2
 
 class Arrow():
@@ -23,9 +25,13 @@ class Arrow():
         max_point = end_point.get()
         # draw main line
         self._main_line = self._canvas.create_line(min_point + max_point, tag="axis", fill="RED")
-        self._name_wigdget = canvas.create_text(max_point, text=self._name.get(),
-                                                anchor=text_anchor, angle=text_angle,
-                                                tag="axis")
+        if tkinter.TkVersion >= 8.6:
+            self._name_wigdget = canvas.create_text(max_point, text=self._name.get(),
+                                                    anchor=text_anchor, angle=text_angle,
+                                                    tag="axis")
+        else:
+            self._name_wigdget = canvas.create_text(max_point, text=self._name.get(),
+                                                    anchor=text_anchor, tag="axis")
 
         start_end = Vector2.sub(max_point, min_point)
         scale = Vector2.len(start_end)

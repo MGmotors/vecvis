@@ -3,6 +3,7 @@ Created on 24.07.2017
 
 @author: Mo
 '''
+import tkinter
 from vecvis.utils.vector2 import Vector2
 
 
@@ -36,9 +37,13 @@ class Marker():
 
         self._line_widget = canvas.create_line(point_0[0], point_0[1], point_1[0], point_1[1],
                                                tag="axis", fill="RED")
-        self._text_widget = canvas.create_text(point_1[0], point_1[1], text=" ",
-                                               angle=text_angle, anchor=text_anchor,
-                                               tag="axis")
+        if tkinter.TkVersion >= 8.6:
+            self._text_widget = canvas.create_text(point_1[0], point_1[1], text=" ",
+                                                   angle=text_angle, anchor=text_anchor,
+                                                   tag="axis")
+        else:
+            self._text_widget = canvas.create_text(point_1[0], point_1[1], text=" ",
+                                                   anchor=text_anchor, tag="axis") 
         self._set_text_value(None)
 
     def remove_visuals(self):
