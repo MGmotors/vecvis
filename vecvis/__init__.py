@@ -45,9 +45,8 @@ class API(threading.Thread):
         """
         self._show_warnings = True
         if tkinter.TkVersion < 8.6:
-            self._error("Tcl/Tk is needed in a Version higher or equal to 8.6." +
+            self._warn("Tcl/Tk Version 8.6. should be used for this Module." +
                         "Your installed version is: " + str(tkinter.TkVersion))
-            return
 
         # check if num_dimensions is greater 2
         try:
